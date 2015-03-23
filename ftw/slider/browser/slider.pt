@@ -2,17 +2,23 @@
                     slider_enabled python:len(panes) > 1;
                     portal context/@@plone_portal_state/portal;">
 
-  <section id="slider-wrapper" class="lead-slider-section show-for-medium-up" tal:attributes="class python:slider_enabled and 'enabled' or None" tal:condition="panes">
+  <section id="slider-wrapper"
+           class="lead-slider-section show-for-medium-up"
+           tal:attributes="class python:slider_enabled and 'lead-slider-section show-for-medium-up enabled' or 'lead-slider-section show-for-medium-up'"
+           tal:condition="panes">
     <div class="row slick" id="slider-panes">
       <div tal:repeat="pane panes" class="sliderPane small-12 medium-12 large-12 columns">
 
         <div class="sliderimage" tal:content="structure pane/@@images/image/slider" />
 
-        <a class="link-slider left" href="#" tal:omit-tag="not:pane/link" tal:attributes="href string:${portal/absolute_url}${pane/link}">
+        <a class="link-slider left" href="#"
+           tal:omit-tag="not:pane/link"
+           tal:attributes="href string:${portal/absolute_url}${pane/link};
+                          class string:link-slider ${pane/align}">
           <div class="show-for-medium-up sliderText">
             <h3 tal:condition="pane/title" tal:content="pane/title" class="documentFirstHeading title">Machen, was wir lieben...</h3>
             <div class="tile-spacer"></div>
-            <span tal:content="structure pane/text/output">Lorem ipsum Sit occaecat exercitation sint occaecat laborum mollit dolor cillum nisi culpa.</span>
+            <span tal:content="structure pane/description">Lorem ipsum Sit occaecat exercitation sint occaecat laborum mollit dolor cillum nisi culpa.</span>
           </div>
         </a>
       </div>

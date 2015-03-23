@@ -13,7 +13,7 @@
 </object>
  <object name="imaging_properties">
   <property name="allowed_sizes" type="lines" purge="False">
-   <element value="sliderblock 1200:800"/>
+   <element value="slider 1172:2000"/>
   </property>
  </object>
 </object>
