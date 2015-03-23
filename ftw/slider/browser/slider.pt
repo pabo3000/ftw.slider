@@ -1,31 +1,28 @@
 <tal:slider define="panes view/panes;
                     slider_enabled python:len(panes) > 1;
                     portal context/@@plone_portal_state/portal;">
-  <div id="slider-wrapper"
-       tal:attributes="class python:slider_enabled and 'enabled' or None"
-       tal:condition="panes">
-    <div id="slider-panes">
-      <div tal:repeat="pane panes"
-           class="sliderPane">
 
-        <a tal:omit-tag="not:pane/link"
-           tal:attributes="href string:${portal/absolute_url}${pane/link}">
-          <div class="sliderImage"
-               tal:content="structure pane/@@images/image"
-               />
-          <div class="sliderText"
-               tal:condition="pane/text">
-            <p tal:condition="pane/title" tal:content="pane/title"
-                class="documentFirstHeading title"/>
-            <span tal:replace="structure pane/text/output" />
+  <section id="slider-wrapper" class="lead-slider-section show-for-medium-up" tal:attributes="class python:slider_enabled and 'enabled' or None" tal:condition="panes">
+    <div class="row slick" id="slider-panes">
+      <div tal:repeat="pane panes" class="sliderPane small-12 medium-12 large-12 columns">
+
+        <div class="sliderimage" tal:content="structure pane/@@images/image/slider" />
+
+        <a class="link-slider left" href="#" tal:omit-tag="not:pane/link" tal:attributes="href string:${portal/absolute_url}${pane/link}">
+          <div class="show-for-medium-up sliderText">
+            <h3 tal:condition="pane/title" tal:content="pane/title" class="documentFirstHeading title">Machen, was wir lieben...</h3>
+            <div class="tile-spacer"></div>
+            <span tal:content="structure pane/text/output">Lorem ipsum Sit occaecat exercitation sint occaecat laborum mollit dolor cillum nisi culpa.</span>
           </div>
         </a>
       </div>
 
     </div>
 
-  </div>
+  </section>
 
-  <div class="visualClear"><!-- --></div>
+  <div class="visualClear">
+    <!-- -->
+  </div>
 
 </tal:slider>

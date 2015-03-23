@@ -23,15 +23,4 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <configure zcml:condition="installed ftw.contentpage">
-    <include package="archetypes.schemaextender" />
-    <adapter factory=".extender.SlickSettingsExtender"
-             provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
-             name="ftw.slider.slicksettings.extender" />
-  </configure>
-
-  <configure zcml:condition="installed plonetheme.onegov">
-    <include package=".sass" />
-  </configure>
-
 </configure>
