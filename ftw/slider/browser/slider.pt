@@ -27,6 +27,31 @@
 
   </section>
 
+  <section id="mobile-slider-wrapper"
+           class="lead-slider-section show-for-small-down"
+           tal:attributes="class python:slider_enabled and 'lead-slider-section show-for-small-down enabled' or 'lead-slider-section show-for-small-down'"
+           tal:condition="panes">
+    <div id="slider-panes">
+      <div tal:repeat="pane panes" class="sliderPane small-12 medium-12 large-12 columns">
+
+        <div class="mobile-sliderimage" tal:content="structure pane/@@images/image/slider" />
+
+        <a class="link-slider left" href="#"
+           tal:omit-tag="not:pane/link"
+           tal:attributes="href string:${portal/absolute_url}${pane/link};
+                          class string:link-slider ${pane/align}">
+          <div class="mobile-link-slider">
+            <h3 tal:condition="pane/title" tal:content="pane/title" class="documentFirstHeading title">Machen, was wir lieben...</h3>
+            <div class="tile-spacer"></div>
+            <span tal:content="structure pane/description">Lorem ipsum Sit occaecat exercitation sint occaecat laborum mollit dolor cillum nisi culpa.</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
   <div class="visualClear">
     <!-- -->
   </div>

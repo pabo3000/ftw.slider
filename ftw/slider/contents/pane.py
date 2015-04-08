@@ -23,6 +23,10 @@ alignments = SimpleVocabulary(
 class IPaneSchema(Schema):
     image = NamedImage(
         title=_(u'label_image', default='Image'),
+        description=_(u'help_align', default=u"""Bitte beachte: Alle Bilder
+        eines Sliders sollten exakt die gleiche Größe haben. Zumindest muss das
+        Verhältnis zwischen Breite und Höhe bei jedem Bild des Sliders
+        übereinstimmen. Die Breite muss mindestens 1158 px betragen."""),
         required=True,
         )
     form.widget(link=ContentTreeFieldWidget)
